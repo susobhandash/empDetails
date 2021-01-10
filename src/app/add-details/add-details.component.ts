@@ -10,9 +10,11 @@ export class AddDetailsComponent implements OnInit {
 
   value = '';
   empDetails = new Employee();
+  projectDetails = new Project();
   positions: EmpRoleGroup[];
   projects: Projects[];
   managers: Emp[];
+  architects: Emp[];
   skills: Skills[];
 
   constructor(private _adapter: DateAdapter<any>) { }
@@ -65,9 +67,16 @@ export class AddDetailsComponent implements OnInit {
 
     this.managers = [
       { 'name': 'Raghavendra Sindol', 'id': 21029 },
+      { 'name': 'Narayyan Bathi', 'id': 34243 },
+      { 'name': 'Indranil Banerjee', 'id': 98443 },
+      { 'name': 'Kiran Shankar', 'id': 9876 },
+    ];
+
+    this.architects = [
+      { 'name': 'Raghavendra Sindol', 'id': 21029 },
       { 'name': 'Praneesh Chouzan', 'id': 12345 },
       { 'name': 'Raghavendra Reddy N', 'id': 23456 },
-      { 'name': 'Kiran Shankar', 'id': 9876 },
+      { 'name': 'Madhu Bhat P', 'id': 78644 },
     ];
 
     this.skills = [
@@ -99,6 +108,7 @@ export class AddDetailsComponent implements OnInit {
 
   resetForm(): void {
     this.empDetails = new Employee();
+    this.projectDetails = new Project();
   }
 
 }
@@ -114,6 +124,18 @@ export class Employee {
   empphone: number = 1234567890;
   empLinkedIn: string = 'www.linkedin.com';
   empDoj: Date = new Date();
+}
+
+export class Project {
+  name: string = 'Vision';
+  fullName: string = 'PrintSmith Vision';
+  code: string = 'PSV';
+  description: string = 'Mid Market Print Suite';
+  notes: string = '';
+  jira: string = 'www.efi.jira.com';
+  confluence: string = 'www.efi.confluence.com';
+  manager: number = 21029;
+  architect: number = 21029;
 }
 
 interface EmpRole {

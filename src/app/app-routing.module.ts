@@ -21,7 +21,7 @@ const routes: Routes = [
     pathMatch: 'full',
     component: AddDetailsComponent,
   },
-  { path: '', component: HomePageComponent },
+  { path: '', component: AddDetailsComponent },
   { path: '**', component: HomePageComponent }
 ];
 

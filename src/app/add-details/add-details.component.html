@@ -128,17 +128,25 @@
                 <div class="d-flex">
                     <mat-form-field class="example-form-field w-100">
                         <mat-label>Project Name</mat-label>
-                        <input matInput type="text" [(ngModel)]="empDetails">
-                        <button mat-button *ngIf="empDetails" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="empDetails=''">
+                        <input matInput type="text" [(ngModel)]="projectDetails.name">
+                        <button mat-button *ngIf="projectDetails.name" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="projectDetails.name=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <mat-form-field class="example-form-field w-100 pl-1">
+                        <mat-label>Project Name</mat-label>
+                        <input matInput type="text" [(ngModel)]="projectDetails.fullName">
+                        <button mat-button *ngIf="projectDetails.fullName" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="projectDetails.fullName=''">
                             <mat-icon>close</mat-icon>
                         </button>
                     </mat-form-field>
                     <mat-form-field class="example-form-field w-100 pl-1">
                         <mat-label>Project Code</mat-label>
-                        <input matInput type="text" [(ngModel)]="empDetails">
-                        <button mat-button *ngIf="empDetails" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="empDetails=''">
+                        <input matInput type="text" [(ngModel)]="projectDetails.code">
+                        <button mat-button *ngIf="projectDetails.code" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="projectDetails.code=''">
                             <mat-icon>close</mat-icon>
                         </button>
                     </mat-form-field>
@@ -146,17 +154,17 @@
                 <div class="d-flex">
                     <mat-form-field class="example-form-field w-100">
                         <mat-label>Project Description</mat-label>
-                        <input matInput type="text" [(ngModel)]="empDetails">
-                        <button mat-button *ngIf="empDetails" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="empDetails=''">
+                        <input matInput type="text" [(ngModel)]="projectDetails.description">
+                        <button mat-button *ngIf="projectDetails.description" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="projectDetails.description=''">
                             <mat-icon>close</mat-icon>
                         </button>
                     </mat-form-field>
                     <mat-form-field class="example-form-field w-100 pl-1">
                         <mat-label>Project Notes</mat-label>
-                        <input matInput type="text" [(ngModel)]="empDetails">
-                        <button mat-button *ngIf="empDetails" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="empDetails=''">
+                        <input matInput type="text" [(ngModel)]="projectDetails.notes">
+                        <button mat-button *ngIf="projectDetails.notes" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="projectDetails.notes=''">
                             <mat-icon>close</mat-icon>
                         </button>
                     </mat-form-field>
@@ -164,17 +172,17 @@
                 <div class="d-flex">
                     <mat-form-field class="example-form-field w-100">
                         <mat-label>Project JIRA Link</mat-label>
-                        <input matInput type="text" [(ngModel)]="empDetails">
-                        <button mat-button *ngIf="empDetails" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="empDetails=''">
+                        <input matInput type="text" [(ngModel)]="projectDetails.jira">
+                        <button mat-button *ngIf="projectDetails.jira" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="projectDetails.jira=''">
                             <mat-icon>close</mat-icon>
                         </button>
                     </mat-form-field>
                     <mat-form-field class="example-form-field w-100 pl-1">
                         <mat-label>Project Confluence Link</mat-label>
-                        <input matInput type="text" [(ngModel)]="empDetails">
-                        <button mat-button *ngIf="empDetails" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="empDetails=''">
+                        <input matInput type="text" [(ngModel)]="projectDetails.confluence">
+                        <button mat-button *ngIf="projectDetails.confluence" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="projectDetails.confluence=''">
                             <mat-icon>close</mat-icon>
                         </button>
                     </mat-form-field>
@@ -182,20 +190,24 @@
                 <div class="d-flex">
                     <mat-form-field class="example-form-field w-100">
                         <mat-label>Project Manager</mat-label>
-                        <input matInput type="text" [(ngModel)]="empDetails">
-                        <button mat-button *ngIf="empDetails" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="empDetails=''">
-                            <mat-icon>close</mat-icon>
-                        </button>
+                        <mat-select [(ngModel)]="projectDetails.manager">
+                            <mat-option *ngFor="let mgr of managers" [value]="mgr.id">
+                                {{mgr.name}}
+                            </mat-option>
+                        </mat-select>
                     </mat-form-field>
                     <mat-form-field class="example-form-field w-100 pl-1">
                         <mat-label>Project Architect</mat-label>
-                        <input matInput type="text" [(ngModel)]="empDetails">
-                        <button mat-button *ngIf="empDetails" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="empDetails=''">
-                            <mat-icon>close</mat-icon>
-                        </button>
+                        <mat-select [(ngModel)]="projectDetails.architect">
+                            <mat-option *ngFor="let mgr of architects" [value]="mgr.id">
+                                {{mgr.name}}
+                            </mat-option>
+                        </mat-select>
                     </mat-form-field>
+                </div>
+                <div class="b-t mt-1 pt-1 text-right">
+                    <button mat-raised-button class="mr-1" (click)="resetForm()">Reset</button>
+                    <button mat-raised-button color="accent">Save</button>
                 </div>
             </div>
         </mat-tab>

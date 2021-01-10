@@ -106,6 +106,14 @@ export class AddDetailsComponent implements OnInit {
     }
   }
 
+  getPojectsName(proj): string {
+    if (proj.length == 0) {
+      return '';
+    } else {
+      return this.projects.filter(el => el.code == proj[0])[0]['name'];
+    }
+  }
+
   resetForm(): void {
     this.empDetails = new Employee();
     this.projectDetails = new Project();
@@ -118,6 +126,7 @@ export class Employee {
   empCode: number = 0;
   empPosition: string = 'se';
   empProject: string = 'RMP';
+  empsMgrProject: string[] = ['RMP', 'PSV'];
   empManager: number = 9876;
   empSkills: string[] = ['css', 'js', 'angular', 'react'];
   empEmail: string = 'abc@efi.com';

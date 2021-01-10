@@ -38,9 +38,21 @@
                     </mat-form-field>
                     <mat-form-field class="example-form-field w-100 pl-1">
                         <mat-label>Employee Project</mat-label>
-                        <mat-select [(ngModel)]="empDetails.empProject">
+                        <mat-select [(ngModel)]="empDetails.empProject" *ngIf="empDetails.empPosition !== 'smgr'">
                             <mat-option *ngFor="let proj of projects" [value]="proj.code" [matTooltip]="proj.fullName"
                                 matTooltipPosition="right">
+                                {{proj.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-select [(ngModel)]="empDetails.empsMgrProject" multiple *ngIf="empDetails.empPosition === 'smgr'">
+                            <mat-select-trigger>
+                                {{getPojectsName(empDetails.empsMgrProject)}}
+                                <span *ngIf="empDetails.empsMgrProject?.length > 1" class="example-additional-selection">
+                                    (+{{empDetails.empsMgrProject.length - 1}} {{empDetails.empsMgrProject?.length === 2 ? 'other'
+                                    : 'others'}})
+                                </span>
+                            </mat-select-trigger>
+                            <mat-option *ngFor="let proj of projects" [value]="proj.code">
                                 {{proj.name}}
                             </mat-option>
                         </mat-select>
@@ -111,13 +123,13 @@
                 </div>
             </div>
         </mat-tab>
-        <mat-tab>
+        <!-- <mat-tab>
             <ng-template mat-tab-label>
                 <mat-icon color="primary">supervisor_account</mat-icon>
                 <span class="pl-1">Manager</span>
             </ng-template>
             Content 1
-        </mat-tab>
+        </mat-tab> -->
         <mat-tab>
             <ng-template mat-tab-label>
                 <mat-icon color="primary">dynamic_form</mat-icon>

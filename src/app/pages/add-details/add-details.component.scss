@@ -1,0 +1,26 @@
+.field-container {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max(calc(100% / var(--form-max-columns) - var(--form-field-gap) * (var(--form-max-columns) - 1)), min(100%, var(--form-column-width))), 1fr));
+    grid-auto-rows: auto;
+    grid-column-gap: calc(var(--form-field-gap)*2);
+    grid-row-gap: var(--form-field-gap);
+    grid-auto-flow: row;
+}
+
+.example-form-field {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-end;
+    align-items: flex-end;
+    box-sizing: border-box;
+    font-size: 14px;
+    min-width: 10px;
+}
+
+.example-additional-selection {
+    opacity  : 0.75;
+    font-size: 0.75em;
+}

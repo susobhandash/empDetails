@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 // Pages
-import { AddDetailsComponent } from './add-details/add-details.component';
-import { ViewDetailsComponent } from './view-details/view-details.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { AddDetailsComponent } from './pages/add-details/add-details.component';
+import { ViewDetailsComponent } from './pages/view-details/view-details.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 // Material
 import { MatTabsModule } from '@angular/material/tabs';
@@ -34,6 +34,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

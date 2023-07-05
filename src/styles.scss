@@ -1,8 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+    --form-max-columns  : 10;
+    --form-field-gap    : 25px;
+    --form-column-width : 300px;
+    --form-column-height: 42px;
+}
+
 html,
 body {
     height: 100%;
+}
+
+app-root {
+    display        : flex;
+    flex-direction : column;
+    justify-content: stretch;
+    height         : 100vh;
 }
 
 * {
@@ -77,14 +91,15 @@ p {
 }
 
 .content {
-    display             : flex;
-    // margin        : 82px auto 32px;
-    padding             : 0 16px;
-    padding-top         : 20px;
-    // max-width        : 960px;
-    width               : 100%;
-    flex-direction      : column;
-    align-items         : center;
+    padding       : 0 16px;
+    padding-top   : 20px;
+    width         : 100%;
+    align-items   : center;
+    flex-direction: column;
+    align-items   : center;
+    flex          : 1 1;
+    min-height    : 0;
+    display       : flex;
 }
 
 svg.material-icons {
@@ -460,8 +475,21 @@ svg#clouds {
     width: 100%;
 }
 
+.h-100 {
+    height: 100%;
+}
+
+.d-flex-col {
+    display       : flex;
+    flex-direction: column;
+}
+
 .d-flex {
     display: flex;
+}
+
+.flex-grow {
+    flex-grow: 1;
 }
 
 .text-right {
@@ -488,6 +516,19 @@ svg#clouds {
     }
 }
 
+.mat-tab-group {
+    height: 100%;
+
+    .mat-tab-header {
+        height: 50px;
+    }
+
+    .mat-tab-body-wrapper {
+        height  : 100%;
+        overflow: auto;
+    }
+}
+
 .mat-tab-label {
     font-family: 'Montserrat';
     font-weight: 500;
@@ -506,9 +547,14 @@ svg#clouds {
     color: #3f51bf;
 }
 
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    width: 100%;
+}
+
 
 // Components
 app-add-details {
-    display: block;
+    display: flex;
+    height : 100%;
     width  : 100%;
 }

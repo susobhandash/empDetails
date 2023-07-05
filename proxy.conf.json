@@ -1,0 +1,6 @@
+{
+  "/api/*": {
+      "target": "https://my-json-server.typicode.com/susobhandash/jsonFakeServer/",
+      "secure": false
+  }
+}
